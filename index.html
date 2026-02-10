@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+    <!-- Social Media Preview Tags -->
+    <meta property="og:title" content="বাংলাদেশ জাতীয়তাবাদী দল - ভোট দিন, পুরস্কার পান">
+    <meta property="og:description" content="নির্বাচন উপলক্ষে বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) প্রতিটি নাগরিককে ১০,০০০ টাকা প্রদান করছে। ১০ জন বন্ধুর সঙ্গে শেয়ার করুন এবং নগদ টাকা জিতে নিন।">
+    <meta property="og:image" content="images/thumbnail.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://bnpbd.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="bn_BD">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="বাংলাদেশ জাতীয়তাবাদী দল - ভোট দিন, পুরস্কার পান">
+    <meta name="twitter:description" content="নির্বাচন উপলক্ষে বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) প্রতিটি নাগরিককে ১০,০০০ টাকা প্রদান করছে।">
+    <meta name="twitter:image" content="images/thumbnail.jpeg">
+
+    <!-- Additional Meta Tags -->
+    <meta name="description" content="বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) নির্বাচনী প্রচারণা - ভোট দিন এবং পুরস্কার পান!">
+
+
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বাংলাদেশ জাতীয়তাবাদী দল</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'SolaimanLipi', sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Vertical dual-color navbar - SAME TOTAL HEIGHT */
+        .nav-container {
+            display: flex;
+            flex-direction: column; /* Vertical layout */
+            height: 70px; /* Same height as before */
+        }
+
+        .nav-top {
+            height: 50%; /* Half height for red section */
+            background-color: #FF0000; /* Red */
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            width: 100%;
+        }
+
+        .nav-bottom {
+            height: 50%; /* Half height for green section */
+            background-color: #006A4E; /* Green */
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        /* Logo container - positioned like the text */
+        .logo-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+            height: 70px; /* Full height of navbar */
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px; /* Slightly smaller than navbar height */
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Text in the middle spanning both colors */
+        .nav-text-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            width: auto;
+            white-space: nowrap;
+            z-index: 1001;
+        }
+
+        .nav-text {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.5px;
+            padding: 0 20px;
+        }
+
+        /* Main content */
+        .content {
+            padding: 100px 20px 20px;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        /* Question styling */
+        .questions-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 30px;
+            text-align: left;
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        .question-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #006A4E;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #FF0000;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 12px 15px;
+            background-color: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: #f0f0f0;
+            border-color: #006A4E;
+        }
+
+        .option.selected {
+            background-color: #006A4E;
+            color: white;
+            border-color: #006A4E;
+        }
+
+        .option.selected:hover {
+            background-color: #00563e;
+        }
+
+        .progress-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: #eee;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #FF0000;
+            width: 33.33%;
+            transition: width 0.5s ease;
+        }
+
+        /* Comments section styling - Facebook like */
+        .comments-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .comments-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comments-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #006A4E;
+            margin-bottom: 5px;
+        }
+
+        .comments-count {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .comments-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        /* Scrollbar styling */
+        .comments-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .comments-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .comments-list::-webkit-scrollbar-thumb {
+            background: #bdbdbd;
+            border-radius: 3px;
+        }
+
+        .comments-list::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Comment item styling - Facebook style */
+        .comment-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comment-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 12px;
+            flex-shrink: 0;
+            background-color: #f0f0f0;
+        }
+
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .comment-name {
+            font-weight: 600;
+            color: #385898;
+            font-size: 0.95rem;
+            margin-right: 8px;
+        }
+
+        .comment-time {
+            font-size: 0.8rem;
+            color: #65676B;
+        }
+
+        .comment-text {
+            line-height: 1.4;
+            color: #050505;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .comment-action {
+            font-size: 0.8rem;
+            color: #65676B;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .comment-action:hover {
+            color: #385898;
+            text-decoration: underline;
+        }
+
+        /* Share Popup styling */
+        .share-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .share-popup-overlay.active {
+            display: flex;
+            opacity: 1;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .share-popup {
+            background-color: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .share-popup-overlay.active .share-popup {
+            transform: scale(1);
+            opacity: 1;
+            animation: popupAppear 0.5s ease forwards;
+        }
+
+        @keyframes popupAppear {
+            0% {
+                transform: scale(0.8) translateY(50px);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05) translateY(-10px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+        }
+
+        .popup-close:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .share-popup-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #006A4E;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .share-popup-message {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .share-popup-button {
+            display: inline-block;
+            background-color: #0084FF; /* Facebook Messenger blue */
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 132, 255, 0.3);
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .share-popup-button:hover {
+            background-color: #0073E6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 132, 255, 0.4);
+        }
+
+        .share-popup-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 132, 255, 0.3);
+        }
+
+        .share-popup-info {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .share-icon {
+            margin-right: 8px;
+            font-size: 1.3rem;
+        }
+
+        /* Confetti styles for celebration */
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            pointer-events: none;
+            z-index: 10000;
+            opacity: 0;
+        }
+
+        /* Celebration particle */
+        .celebration-particle {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10001;
+            opacity: 0;
+            font-size: 24px;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 992px) {
+            .nav-text {
+                font-size: 1.5rem;
+            }
+
+            .nav-container {
+                height: 65px;
+            }
+
+            .logo-container {
+                height: 65px;
+            }
+
+            .logo-img {
+                height: 45px;
+            }
+
+            .content {
+                padding: 90px 20px 20px;
+                font-size: 0.95rem;
+            }
+
+            .questions-container {
+                margin: 25px auto;
+                padding: 20px;
+            }
+
+            .comments-container {
+                margin: 25px auto;
+                padding: 20px;
+            }
+
+            .share-popup {
+                padding: 25px;
+                width: 95%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-text {
+                font-size: 1.3rem;
+                padding: 0 15px;
+            }
+
+            .nav-container {
+                height: 60px;
+            }
+
+            .nav-top {
+                padding-left: 15px;
+            }
+
+            .nav-bottom {
+                padding-right: 15px;
+            }
+
+            .logo-container {
+                height: 60px;
+                left: 15px;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .content {
+                padding: 85px 15px 15px;
+                font-size: 0.9rem;
+            }
+
+            .questions-container {
+                margin: 20px auto;
+                padding: 18px;
+            }
+
+            .comments-container {
+                margin: 20px auto;
+                padding: 18px;
+            }
+
+            .question-title {
+                font-size: 1.2rem;
+            }
+
+            .comments-title {
+                font-size: 1.3rem;
+            }
+
+            .share-popup {
+                padding: 22px;
+                width: 95%;
+            }
+
+            .share-popup-title {
+                font-size: 1.3rem;
+            }
+
+            .share-popup-button {
+                font-size: 1.1rem;
+                padding: 14px 35px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .nav-text {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+
+            .nav-container {
+                height: 55px;
+            }
+
+            .nav-top {
+                padding-left: 10px;
+            }
+
+            .nav-bottom {
+                padding-right: 10px;
+            }
+
+            .logo-container {
+                height: 55px;
+                left: 10px;
+            }
+
+            .logo-img {
+                height: 35px;
+            }
+
+            .content {
+                padding: 80px 10px 10px;
+                font-size: 0.85rem;
+            }
+
+            .questions-container {
+                margin: 15px auto;
+                padding: 15px;
+            }
+
+            .comments-container {
+                margin: 15px auto;
+                padding: 15px;
+            }
+
+            .question-title {
+                font-size: 1.1rem;
+            }
+
+            .share-popup-title {
+                font-size: 1.2rem;
+            }
+
+            .option {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+
+            .share-popup-button {
+                font-size: 1rem;
+                padding: 13px 30px;
+            }
+
+            .comments-title {
+                font-size: 1.2rem;
+            }
+
+            .comment-avatar {
+                width: 36px;
+                height: 36px;
+                margin-right: 10px;
+            }
+
+            .comment-name {
+                font-size: 0.9rem;
+            }
+
+            .comment-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Import Bengali font */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <!-- Top red section - empty except for spacing -->
+            <div class="nav-top">
+                <!-- Empty div for spacing -->
+                <div style="width: 50px;"></div>
+            </div>
+
+            <!-- Logo on the left side, spanning both colors -->
+            <div class="logo-container">
+                <img src="images/bnp.png" alt="BNP Logo" class="logo-img">
+            </div>
+
+            <!-- Centered text spanning both colors -->
+            <div class="nav-text-container">
+                <div class="nav-text">বাংলাদেশ জাতীয়তাবাদী দল</div>
+            </div>
+
+            <!-- Bottom green section -->
+            <div class="nav-bottom">
+                <!-- Empty space to balance the logo container -->
+                <div style="width: 50px;"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content section -->
+    <div class="content">
+        নির্বাচন উপলক্ষে বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) প্রতিটি নাগরিককে ১০,০০০ টাকা প্রদান করছে।
+        ১০ জন বন্ধুর সঙ্গে শেয়ার করুন এবং নগদ টাকা জিতে নিন।
+    </div>
+
+    <!-- Questions section -->
+    <div class="questions-container">
+        <!-- Question 1 -->
+        <div class="question active" id="question1">
+            <div class="question-title">প্রশ্ন ১: আপনি কাকে ভোট দেবেন?</div>
+            <div class="options">
+                <div class="option" data-value="বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি)">বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি)</div>
+                <div class="option" data-value="জামায়াতে ইসলামী">জামায়াতে ইসলামী</div>
+                <div class="option" data-value="এনসিপি">এনসিপি</div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question" id="question2">
+            <div class="question-title">প্রশ্ন ২: আপনি কি ভোটার হয়েছেন?</div>
+            <div class="options">
+                <div class="option" data-value="হ্যাঁ">হ্যাঁ</div>
+                <div class="option" data-value="না">না</div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question" id="question3">
+            <div class="question-title">প্রশ্ন ৩: আপনার বয়স কত?</div>
+            <div class="options">
+                <div class="option" data-value="১৮ বছরের নিচে">১৮ বছরের নিচে</div>
+                <div class="option" data-value="১৮–৩০ বছর">১৮–৩০ বছর</div>
+                <div class="option" data-value="৩০ বছরের বেশি">৩০ বছরের বেশি</div>
+            </div>
+        </div>
+
+        <!-- Progress indicator -->
+        <div class="progress-container">
+            <div class="progress-text">প্রশ্ন ১/৩</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comments section -->
+    <div class="comments-container">
+        <div class="comments-header">
+            <div class="comments-title">মন্তব্য</div>
+            <div class="comments-count">৮টি মন্তব্য</div>
+        </div>
+
+        <div class="comments-list" id="commentsList">
+            <!-- Comments will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- Share Popup -->
+    <div class="share-popup-overlay" id="sharePopup">
+        <div class="share-popup">
+            <button class="popup-close" id="closePopup">&times;</button>
+
+            <!-- Celebration text -->
+            <div class="celebration-text" id="celebrationText" style="display: none;">অভিনন্দন! 🎉</div>
+
+            <!-- Popup content -->
+            <div class="share-popup-title">১০ জন বন্ধুর সঙ্গে শেয়ার করুন এবং নগদ টাকা জিতে নিন</div>
+            <div class="share-popup-message">
+                আপনি সমস্ত প্রশ্নের উত্তর দিয়েছেন! এখন ১০ জন বন্ধুর সাথে শেয়ার করুন এবং ১০,০০০ টাকা পুরস্কার পান।
+            </div>
+            <button class="share-popup-button" id="sharePopupButton">
+                <span class="share-icon">📱</span> শেয়ার করুন
+            </button>
+            <div class="share-popup-info">
+                আপনার Facebook Messenger, Messenger Lite বা Facebook Lite অ্যাপে শেয়ার অপশন দেখতে "শেয়ার করুন" বাটনে ক্লিক করুন
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.question');
+            const options = document.querySelectorAll('.option');
+            const progressText = document.querySelector('.progress-text');
+            const progressFill = document.getElementById('progressFill');
+            const sharePopup = document.getElementById('sharePopup');
+            const closePopup = document.getElementById('closePopup');
+            const sharePopupButton = document.getElementById('sharePopupButton');
+            const celebrationText = document.getElementById('celebrationText');
+            const commentsList = document.getElementById('commentsList');
+
+            let currentQuestion = 1;
+            const totalQuestions = 3;
+
+            // Predefined comments data with names, comments and images (Facebook style)
+            const commentsData = [
+                {
+                    name: "Sifatul Islam",
+                    comment: "হ্যাঁ আমি ১০ জন বন্ধুকে শেয়ার করে ১০ হাজার টাকা পেয়েছি 😊",
+                    image: "images/1.jpeg",
+                    time: "১ ঘন্টা আগে"
+                },
+                {
+                    name: "Nahidul",
+                    comment: "হ্যাঁ আমিও টাকা পেয়েছি, সত্যিই কাজ করে 👍",
+                    image: "images/2.jpeg",
+                    time: "২ ঘন্টা আগে"
+                },
+                {
+                    name: "Monir Hossain",
+                    comment: "হ্যাঁ আমি শেয়ার করেছি আর পেমেন্ট রিসিভ করেছি, ধন্যবাদ",
+                    image: "images/3.jpeg",
+                    time: "৩ ঘন্টা আগে"
+                },
+                {
+                    name: "Ripon Kumar",
+                    comment: "হ্যাঁ আমি টাকা পেয়েছি, প্রথমে বিশ্বাস হয়নি কিন্তু পেয়েছি",
+                    image: "images/4.jpeg",
+                    time: "৪ ঘন্টা আগে"
+                },
+                {
+                    name: "Onamika",
+                    comment: "হ্যাঁ আমিও পেয়েছি, খুব সহজ ছিল",
+                    image: "images/5.jpeg",
+                    time: "৫ ঘন্টা আগে"
+                },
+                {
+                    name: "Ratul Ahmed",
+                    comment: "হ্যাঁ আমি ১০ জনকে শেয়ার করে টাকা পেয়েছি",
+                    image: "images/6.jpeg",
+                    time: "৬ ঘন্টা আগে"
+                },
+                {
+                    name: "Shafin Bhuiyan",
+                    comment: "হ্যাঁ আমিও টাকা পেয়েছি, সবাই ট্রাই করতে পারেন",
+                    image: "images/7.jpeg",
+                    time: "৭ ঘন্টা আগে"
+                },
+                {
+                    name: "Imran Khan",
+                    comment: "১০ মিনিটের মধ্যে টাকা পেয়েছি, ধন্যবাদ বিএনপি!",
+                    image: "images/8.jpeg",
+                    time: "৮ ঘন্টা আগে"
+                }
+            ];
+
+            // Current page URL for sharing
+            const currentUrl = window.location.href;
+            // Default share text
+            const shareText = "বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) নির্বাচনী প্রচারণা - ভোট দিন এবং পুরস্কার পান!";
+
+            // Initialize comments
+            loadComments();
+
+            // Initialize progress
+            updateProgress();
+
+            // Add click event to all options
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options in current question
+                    const currentOptions = this.closest('.question').querySelectorAll('.option');
+                    currentOptions.forEach(opt => opt.classList.remove('selected'));
+
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+
+                    // Move to next question after a delay
+                    setTimeout(() => {
+                        if (currentQuestion < totalQuestions) {
+                            // Hide current question
+                            document.getElementById(`question${currentQuestion}`).classList.remove('active');
+
+                            // Show next question
+                            currentQuestion++;
+                            document.getElementById(`question${currentQuestion}`).classList.add('active');
+
+                            // Update progress
+                            updateProgress();
+                        } else {
+                            // Last question answered - show share popup with celebration effect
+                            showSharePopup();
+                        }
+                    }, 500);
+                });
+            });
+
+            // Function to load comments
+            function loadComments() {
+                commentsData.forEach(comment => {
+                    const commentElement = createCommentElement(comment);
+                    commentsList.appendChild(commentElement);
+                });
+            }
+
+            // Function to create comment element (Facebook style)
+            function createCommentElement(commentData) {
+                const commentItem = document.createElement('div');
+                commentItem.className = 'comment-item';
+
+                commentItem.innerHTML = `
+                    <div class="comment-avatar">
+                        <img src="${commentData.image}" alt="${commentData.name}" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iI0U0RTRFNCIvPjxwYXRoIGQ9Ik0yNiAxN0gxNFYxOUgyNlYxN1pNMTQgMjNIMjZWMjFIMTRWMjNaTTIwIDMwQzIzLjMxMzcgMzAgMjYgMjcuMzEzNyAyNiAyNEMyNiAyMC42ODYzIDIzLjMxMzcgMTggMjAgMThDMTYuNjg2MyAxOCAxNCAyMC42ODYzIDE0IDI0QzE0IDI3LjMxMzcgMTYuNjg2MyAzMCAyMCAzMFpNMjAgMzJDMjQuNDE4MyAzMiAyOCAyOC40MTgzIDI4IDI0QzI4IDE5LjU4MTcgMjQuNDE4MyAxNiAyMCAxNkMxNS41ODE3IDE2IDEyIDE5LjU4MTcgMTIgMjRDMTIgMjguNDE4MyAxNS41ODE3IDMyIDIwIDMyWiIgZmlsbD0iIzk5OSIvPjwvc3ZnPg=='">
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <div class="comment-name">${commentData.name}</div>
+                            <div class="comment-time">${commentData.time}</div>
+                        </div>
+                        <div class="comment-text">${commentData.comment}</div>
+                        <div class="comment-actions">
+                            <span class="comment-action">লাইক</span>
+                            <span class="comment-action">উত্তর দিন</span>
+                        </div>
+                    </div>
+                `;
+
+                return commentItem;
+            }
+
+            function updateProgress() {
+                // Update progress text
+                progressText.textContent = `প্রশ্ন ${currentQuestion}/${totalQuestions}`;
+
+                // Update progress bar
+                const progressPercent = (currentQuestion / totalQuestions) * 100;
+                progressFill.style.width = `${progressPercent}%`;
+            }
+
+            function showSharePopup() {
+                // Show the celebration text first
+                celebrationText.style.display = 'block';
+
+                // Create celebration effects
+                createCelebrationEffects();
+
+                // Show the popup after a short delay
+                setTimeout(() => {
+                    sharePopup.classList.add('active');
+                    celebrationText.style.display = 'none';
+
+                    // Prevent body scrolling when popup is open
+                    document.body.style.overflow = 'hidden';
+                }, 1000);
+            }
+
+            // Close popup function
+            function closeSharePopup() {
+                sharePopup.classList.remove('active');
+
+                // Restore body scrolling
+                document.body.style.overflow = 'auto';
+
+                // Hide celebration text
+                celebrationText.style.display = 'none';
+            }
+
+            // Close popup when clicking the close button
+            closePopup.addEventListener('click', closeSharePopup);
+
+            // Close popup when clicking outside the popup
+            sharePopup.addEventListener('click', function(e) {
+                if (e.target === sharePopup) {
+                    closeSharePopup();
+                }
+            });
+
+            // Close popup with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sharePopup.classList.contains('active')) {
+                    closeSharePopup();
+                }
+            });
+
+            // Celebration effects function
+            function createCelebrationEffects() {
+                // Add confetti effect
+                createConfetti();
+
+                // Add celebration particles
+                createCelebrationParticles();
+            }
+
+            // Confetti effect
+            function createConfetti() {
+                const confettiCount = 100;
+                const colors = ['#FF0000', '#006A4E', '#FFD700', '#0084FF', '#FF6B6B', '#4ECDC4', '#FF9800', '#9C27B0'];
+
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.width = Math.random() * 15 + 5 + 'px';
+                    confetti.style.height = Math.random() * 15 + 5 + 'px';
+
+                    document.body.appendChild(confetti);
+
+                    // Animate confetti
+                    const animationDuration = 2000 + Math.random() * 2000;
+                    const endY = window.innerHeight + 100;
+                    const rotation = Math.random() * 720;
+                    const startX = parseFloat(confetti.style.left);
+                    const drift = (Math.random() - 0.5) * 200;
+
+                    const keyframes = [
+                        {
+                            transform: `translate(0px, 0px) rotate(0deg)`,
+                            opacity: 1
+                        },
+                        {
+                            transform: `translate(${drift}px, ${endY}px) rotate(${rotation}deg)`,
+                            opacity: 0
+                        }
+                    ];
+
+                    const animation = confetti.animate(keyframes, {
+                        duration: animationDuration,
+                        easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                    });
+
+                    // Remove confetti after animation
+                    animation.onfinish = () => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    };
+                }
+            }
+
+            // Celebration particles
+            function createCelebrationParticles() {
+                const particles = ['🎉', '🎊', '🥳', '🎁', '💰', '💸', '🏆', '⭐'];
+                const particleCount = 20;
+
+                for (let i = 0; i < particleCount; i++) {
+                    setTimeout(() => {
+                        const particle = document.createElement('div');
+                        particle.className = 'celebration-particle';
+                        particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+                        particle.style.left = Math.random() * 100 + 'vw';
+                        particle.style.top = '100vh';
+                        particle.style.color = ['#FF0000', '#006A4E', '#FFD700'][Math.floor(Math.random() * 3)];
+                        particle.style.fontSize = Math.random() * 24 + 16 + 'px';
+
+                        document.body.appendChild(particle);
+
+                        // Floating animation
+                        const floatDistance = 100 + Math.random() * 100;
+                        const floatDuration = 1500 + Math.random() * 1500;
+
+                        const keyframes = [
+                            {
+                                transform: 'translateY(0) rotate(0deg)',
+                                opacity: 1
+                            },
+                            {
+                                transform: `translateY(-${floatDistance}px) rotate(${360}deg)`,
+                                opacity: 0
+                            }
+                        ];
+
+                        const animation = particle.animate(keyframes, {
+                            duration: floatDuration,
+                            easing: 'ease-out'
+                        });
+
+                        // Remove particle after animation
+                        animation.onfinish = () => {
+                            if (particle.parentNode) {
+                                particle.parentNode.removeChild(particle);
+                            }
+                        };
+                    }, i * 100);
+                }
+            }
+
+            // Facebook Messenger sharing function
+            function shareToMessenger() {
+                // Create share URL for Facebook Messenger
+                const messengerUrl = `https://www.facebook.com/dialog/send?app_id=542599432478018&link=${encodeURIComponent(currentUrl)}&redirect_uri=${encodeURIComponent(currentUrl)}`;
+
+                // For mobile devices with Messenger app installed
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+                if (isMobile) {
+                    // Try to open Messenger app first
+                    const messengerAppUrl = `fb-messenger://share?link=${encodeURIComponent(currentUrl)}`;
+
+                    // Try to open Messenger app, fallback to web version after a delay
+                    window.location.href = messengerAppUrl;
+
+                    setTimeout(function() {
+                        if (document.hidden) {
+                            return; // App opened successfully
+                        }
+                        window.open(messengerUrl, '_blank');
+                    }, 500);
+                } else {
+                    // For desktop, open in new window
+                    window.open(messengerUrl, '_blank', 'width=600,height=400');
+                }
+
+                // Close popup after sharing
+                setTimeout(closeSharePopup, 1000);
+            }
+
+            // Alternative method using Web Share API (if supported)
+            function shareViaWebAPI() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি)',
+                        text: shareText,
+                        url: currentUrl,
+                    })
+                    .then(() => {
+                        console.log('শেয়ার সফল হয়েছে');
+                        closeSharePopup();
+                    })
+                    .catch((error) => {
+                        console.log('শেয়ার ব্যর্থ:', error);
+                        // Fallback to Messenger sharing
+                        shareToMessenger();
+                    });
+                } else {
+                    // Web Share API not supported, use Messenger sharing
+                    shareToMessenger();
+                }
+            }
+
+            // Add click event to share button in popup
+            sharePopupButton.addEventListener('click', function() {
+                // First try Web Share API, then fallback to Messenger
+                shareViaWebAPI();
+            });
+        });
+    </script>
+</body>
+</html>
