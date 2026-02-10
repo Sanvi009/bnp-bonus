@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Social Media Preview Tags -->
-    <!-- Facebook Open Graph / Messenger -->
+    <!-- Social Media Preview Tags - USING ABSOLUTE URLS -->
     <meta property="og:title" content="বাংলাদেশ জাতীয়তাবাদী দল - ভোট দিন, পুরস্কার পান">
     <meta property="og:description" content="নির্বাচন উপলক্ষে বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) প্রতিটি নাগরিককে ১০,০০০ টাকা প্রদান করছে। ১০ জন বন্ধুর সঙ্গে শেয়ার করুন এবং নগদ টাকা জিতে নিন।">
-    <meta property="og:image" content="images/thumbnail.jpeg">
+    <!-- CHANGE THIS to absolute URL -->
+    <meta property="og:image" content="https://bnpbd.com/images/thumbnail.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://bnpbd.com">
@@ -16,16 +16,26 @@
     <meta property="og:locale" content="bn_BD">
     <meta property="og:site_name" content="বাংলাদেশ জাতীয়তাবাদী দল">
 
-    <!-- WhatsApp -->
+    <!-- Twitter Card (Optional but helps) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="বাংলাদেশ জাতীয়তাবাদী দল - ভোট দিন, পুরস্কার পান">
+    <meta name="twitter:description" content="নির্বাচন উপলক্ষে বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) প্রতিটি নাগরিককে ১০,০০০ টাকা প্রদান করছে।">
+    <meta name="twitter:image" content="https://bnpbd.com/images/thumbnail.jpeg">
+
+    <!-- WhatsApp specific -->
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:alt" content="বাংলাদেশ জাতীয়তাবাদী দল ভোট প্রচারণা">
 
     <!-- Additional Meta Tags -->
     <meta name="description" content="নির্বাচন উপলক্ষে বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) প্রতিটি নাগরিককে ১০,০০০ টাকা প্রদান করছে। ১০ জন বন্ধুর সঙ্গে শেয়ার করুন এবং নগদ টাকা জিতে নিন।">
 
+    <!-- IMPORTANT: Canonical URL -->
+    <link rel="canonical" href="https://bnpbd.com" />
+
     <title>বাংলাদেশ জাতীয়তাবাদী দল</title>
+
     <style>
-        /* Reset */
+        /* Your existing CSS stays exactly the same */
         * {
             margin: 0;
             padding: 0;
@@ -38,7 +48,6 @@
             min-height: 100vh;
         }
 
-        /* Navigation Bar */
         nav {
             width: 100%;
             position: fixed;
@@ -48,16 +57,15 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Vertical dual-color navbar - SAME TOTAL HEIGHT */
         .nav-container {
             display: flex;
-            flex-direction: column; /* Vertical layout */
-            height: 70px; /* Same height as before */
+            flex-direction: column;
+            height: 70px;
         }
 
         .nav-top {
-            height: 50%; /* Half height for red section */
-            background-color: #FF0000; /* Red */
+            height: 50%;
+            background-color: #FF0000;
             display: flex;
             align-items: center;
             padding-left: 20px;
@@ -65,8 +73,8 @@
         }
 
         .nav-bottom {
-            height: 50%; /* Half height for green section */
-            background-color: #006A4E; /* Green */
+            height: 50%;
+            background-color: #006A4E;
             display: flex;
             align-items: center;
             padding-right: 20px;
@@ -74,26 +82,24 @@
             width: 100%;
         }
 
-        /* Logo container - positioned like the text */
         .logo-container {
             position: absolute;
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 1001;
-            height: 70px; /* Full height of navbar */
+            height: 70px;
             display: flex;
             align-items: center;
         }
 
         .logo-img {
-            height: 50px; /* Slightly smaller than navbar height */
+            height: 50px;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.4));
         }
 
-        /* Text in the middle spanning both colors */
         .nav-text-container {
             position: absolute;
             left: 50%;
@@ -115,37 +121,22 @@
             padding: 0 20px;
         }
 
-        /* Main content - EMPTY */
         .content {
             padding: 100px 20px 20px;
             text-align: center;
             line-height: 1.5;
             font-size: 1rem;
-            color: transparent; /* Make text invisible */
+            color: transparent;
         }
 
-        /* Responsive design - EXACT SAME as original */
         @media screen and (max-width: 992px) {
             .nav-text {
                 font-size: 1.5rem;
             }
-
-            .nav-container {
-                height: 65px;
-            }
-
-            .logo-container {
-                height: 65px;
-            }
-
-            .logo-img {
-                height: 45px;
-            }
-
-            .content {
-                padding: 90px 20px 20px;
-                font-size: 0.95rem;
-            }
+            .nav-container { height: 65px; }
+            .logo-container { height: 65px; }
+            .logo-img { height: 45px; }
+            .content { padding: 90px 20px 20px; font-size: 0.95rem; }
         }
 
         @media screen and (max-width: 768px) {
@@ -153,32 +144,12 @@
                 font-size: 1.3rem;
                 padding: 0 15px;
             }
-
-            .nav-container {
-                height: 60px;
-            }
-
-            .nav-top {
-                padding-left: 15px;
-            }
-
-            .nav-bottom {
-                padding-right: 15px;
-            }
-
-            .logo-container {
-                height: 60px;
-                left: 15px;
-            }
-
-            .logo-img {
-                height: 40px;
-            }
-
-            .content {
-                padding: 85px 15px 15px;
-                font-size: 0.9rem;
-            }
+            .nav-container { height: 60px; }
+            .nav-top { padding-left: 15px; }
+            .nav-bottom { padding-right: 15px; }
+            .logo-container { height: 60px; left: 15px; }
+            .logo-img { height: 40px; }
+            .content { padding: 85px 15px 15px; font-size: 0.9rem; }
         }
 
         @media screen and (max-width: 480px) {
@@ -186,70 +157,53 @@
                 font-size: 1.1rem;
                 padding: 0 10px;
             }
-
-            .nav-container {
-                height: 55px;
-            }
-
-            .nav-top {
-                padding-left: 10px;
-            }
-
-            .nav-bottom {
-                padding-right: 10px;
-            }
-
-            .logo-container {
-                height: 55px;
-                left: 10px;
-            }
-
-            .logo-img {
-                height: 35px;
-            }
-
-            .content {
-                padding: 80px 10px 10px;
-                font-size: 0.85rem;
-            }
+            .nav-container { height: 55px; }
+            .nav-top { padding-left: 10px; }
+            .nav-bottom { padding-right: 10px; }
+            .logo-container { height: 55px; left: 10px; }
+            .logo-img { height: 35px; }
+            .content { padding: 80px 10px 10px; font-size: 0.85rem; }
         }
 
-        /* Import Bengali font - EXACT SAME */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - EXACT SAME as original -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
-            <!-- Top red section - empty except for spacing -->
             <div class="nav-top">
-                <!-- Empty div for spacing -->
                 <div style="width: 50px;"></div>
             </div>
 
-            <!-- Logo on the left side, spanning both colors -->
             <div class="logo-container">
-                <!-- Using placeholder SVG logo since no image path specified -->
                 <img src="images/bnp.png" alt="BNP Logo" class="logo-img">
             </div>
 
-            <!-- Centered text spanning both colors -->
             <div class="nav-text-container">
                 <div class="nav-text">বাংলাদেশ জাতীয়তাবাদী দল</div>
             </div>
 
-            <!-- Bottom green section -->
             <div class="nav-bottom">
-                <!-- Empty space to balance the logo container -->
                 <div style="width: 50px;"></div>
             </div>
         </div>
     </nav>
 
-    <!-- Content section - COMPLETELY EMPTY, just for spacing -->
     <div class="content">
-        <!-- No content here - page is empty except for nav bar -->
+        <!-- Page is empty as requested -->
     </div>
+
+    <!-- ADD THIS SCRIPT to help social media scrapers -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "বাংলাদেশ জাতীয়তাবাদী দল - ভোট দিন, পুরস্কার পান",
+        "description": "নির্বাচন উপলক্ষে বাংলাদেশ জাতীয়তাবাদী দল (বিএনপি) প্রতিটি নাগরিককে ১০,০০০ টাকা প্রদান করছে। ১০ জন বন্ধুর সঙ্গে শেয়ার করুন এবং নগদ টাকা জিতে নিন।",
+        "url": "https://bnpbd.com",
+        "image": "https://bnpbd.com/images/thumbnail.jpeg"
+    }
+    </script>
 </body>
 </html>
