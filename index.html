@@ -384,29 +384,7 @@
             }
         }
 
-        .popup-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 24px;
-            color: #666;
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.2s;
-        }
-
-        .popup-close:hover {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
+        /* REMOVED CLOSE BUTTON STYLING */
         .share-popup-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -763,8 +741,7 @@
     <!-- Share Popup -->
     <div class="share-popup-overlay" id="sharePopup">
         <div class="share-popup">
-            <button class="popup-close" id="closePopup">&times;</button>
-
+            <!-- REMOVED CLOSE BUTTON -->
             <!-- Celebration text -->
             <div class="celebration-text" id="celebrationText" style="display: none;">অভিনন্দন! 🎉</div>
 
@@ -789,7 +766,6 @@
             const progressText = document.querySelector('.progress-text');
             const progressFill = document.getElementById('progressFill');
             const sharePopup = document.getElementById('sharePopup');
-            const closePopup = document.getElementById('closePopup');
             const sharePopupButton = document.getElementById('sharePopupButton');
             const celebrationText = document.getElementById('celebrationText');
             const commentsList = document.getElementById('commentsList');
@@ -949,8 +925,9 @@
                 }, 1000);
             }
 
-            // Close popup function
+            // Close popup function - REMOVED FROM USER ACCESS
             function closeSharePopup() {
+                // This function is only called after sharing, not by user
                 sharePopup.classList.remove('active');
 
                 // Restore body scrolling
@@ -960,22 +937,8 @@
                 celebrationText.style.display = 'none';
             }
 
-            // Close popup when clicking the close button
-            closePopup.addEventListener('click', closeSharePopup);
-
-            // Close popup when clicking outside the popup
-            sharePopup.addEventListener('click', function(e) {
-                if (e.target === sharePopup) {
-                    closeSharePopup();
-                }
-            });
-
-            // Close popup with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && sharePopup.classList.contains('active')) {
-                    closeSharePopup();
-                }
-            });
+            // REMOVED: Close popup when clicking outside the popup
+            // REMOVED: Close popup with Escape key
 
             // Celebration effects function
             function createCelebrationEffects() {
